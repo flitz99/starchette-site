@@ -1,6 +1,6 @@
 backend:
-  name: test-repo
-  local_backend: true
+  name: git-gateway
+  branch: main
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
@@ -16,3 +16,4 @@ collections:
       - { label: "Descrizione", name: "description", widget: "text" }
       - { label: "Prezzo", name: "price", widget: "number" }
       - { label: "Immagine", name: "image", widget: "image" }
+
