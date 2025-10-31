@@ -1,0 +1,38 @@
+/* Font globale se vuoi */
+.navbar {
+  background-color: #fff0f5;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1rem 0;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  color: #ec4899; /* rosa */
+  font-family: 'Cursive', sans-serif;
+}
+
+.navbar-links a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #4b5563; /* grigio */
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: #db2777; /* rosa scuro */
+}
+
+
+body {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
