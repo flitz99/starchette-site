@@ -9,22 +9,29 @@
   <body>
     <div id="root"></div>
 
-    <!-- Il tuo bundle React -->
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- Aggiungi questi script sotto -->
+    <!-- Netlify Identity -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-      // Gestisce login, inviti e redirect
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", (user) => {
-          // Se non c'è un utente loggato, ascolta l'evento di login
+          // Se non loggato, reindirizza dopo il login
           if (!user) {
             window.netlifyIdentity.on("login", () => {
               document.location.href = "/admin/";
             });
           }
         });
+
+        // 👇 Mostra automaticamente il form se c’è un invito
+        window.netlifyIdentity.on("init", () => {
+          if (window.location.hash.includes("invite_token")) {
+            // Apri il widget per completare la registrazione
+            window.netlifyIdentity.open("signup");
+          }
+        });
+
         window.netlifyIdentity.init();
       }
     </script>
