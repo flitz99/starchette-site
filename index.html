@@ -8,6 +8,25 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Il tuo bundle React -->
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Aggiungi questi script sotto -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      // Gestisce login, inviti e redirect
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          // Se non c'è un utente loggato, ascolta l'evento di login
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+        window.netlifyIdentity.init();
+      }
+    </script>
   </body>
 </html>
