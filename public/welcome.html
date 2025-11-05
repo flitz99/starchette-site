@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <title>Conferma invito - Starchette</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <h2>Benvenuta in Starchette!</h2>
+    <p>Attendi un momento mentre completi la registrazione...</p>
+
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            // se l'utente non è loggato, apri il form per completare l'invito
+            if (window.location.hash.includes("invite_token")) {
+              window.netlifyIdentity.open("signup");
+            }
+          }
+        });
+
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+
+        window.netlifyIdentity.init();
+      }
+    </script>
+  </body>
+</html>
